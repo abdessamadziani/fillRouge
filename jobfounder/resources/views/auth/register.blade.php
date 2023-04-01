@@ -8,7 +8,7 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
+            <x-input id="user_type" class="block mt-1 w-full" type="hidden" name="user_type" value="seeker" />
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -20,6 +20,11 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="dob" value="{{ __('Date Of Birth') }}" />
+                <x-input id="dob" class="block mt-1 w-full" type="date" name="dob" :value="old('dob')" required />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
@@ -27,6 +32,15 @@
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+            <div class="mt-4">
+                <x-label for="gender" value="{{ __('Gender') }}" />
+                Male
+                <x-input id="male" class=" mt-1" type="radio" name="gender" value="male"  />
+                &nbsp;
+                Female
+                <x-input id="female" class=" mt-1" type="radio" name="gender" value="female"   />
+
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

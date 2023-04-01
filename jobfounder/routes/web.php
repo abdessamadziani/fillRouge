@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[App\Http\Controllers\JobController::class,'index']);
+
+Route::get('/job/{id}/{slug}',[JobController::class,'show'])->name('jobs.show');
+Route::get('/company/{id}/{slug}',[CompanyController::class,'index'])->name('company.index');
+Route::get('/user/profile/pro',[UserController::class,'index']);
 
 Route::middleware([
     'auth:sanctum',
