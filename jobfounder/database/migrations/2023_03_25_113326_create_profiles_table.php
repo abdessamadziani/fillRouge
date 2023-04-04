@@ -16,8 +16,10 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('address')->nullable();
             $table->string('gender');
+            $table->string('phone')->nullable();
             $table->string('dob');
             $table->string('experience')->nullable();
+            $table->string('bio')->nullable();
             $table->string('cover_letter')->nullable();
             $table->string('resume')->nullable();
             $table->string('avatar')->nullable();

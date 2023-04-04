@@ -24,7 +24,6 @@ class CompanyFactory extends Factory
 
         return [
             'user_id' =>$this->faker->randomDigitNotZero(1),
-            'gender' =>'Male',
             'name' =>$name=$this->faker->name().'Company',
             'slug' =>Str::slug($name, '-'),
             'address' =>$this->faker->address(),
@@ -32,7 +31,7 @@ class CompanyFactory extends Factory
             'website' => $this->faker->domainName(),
             'logo' =>'avatar/logo.png',
             'cover_photo' => 'cover/pic.jpg',
-            'slogan' =>'learn-earn and grow',
+            // 'slogan' =>'learn-earn and grow',
             'description' =>$this->faker->text()
         ];
 

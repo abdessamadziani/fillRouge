@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\User;
+use App\Models\Company;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
-class JobController extends Controller
+
+
+
+class RecruiterRegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +19,27 @@ class JobController extends Controller
     public function index()
     {
         //
-        $jobs=Job::all()->take(10);
-        return view('welcome',compact('jobs'));
     }
+
+    public function RecruiterRegistration(Request $request)
+        {
+            $user= User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'user_type' => $request['user_type'],
+                'password' => Hash::make($request['password']),
+            ]);
+
+               Company::create([
+                $name=$request['cname'],
+                'user_id' => $user->id,
+                'name' => $name,
+                'slug' => Str::slug($name, '-'),
+
+            ]);
+            return redirect()->to('login');
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +47,6 @@ class JobController extends Controller
     public function create()
     {
         //
-        return View('jobs.create');
     }
 
     /**
@@ -40,9 +63,6 @@ class JobController extends Controller
     public function show(string $id)
     {
         //
-        $job=Job::find($id);
-        // dd($job->position);
-        return view('Jobs.show',compact('job'));
     }
 
     /**
