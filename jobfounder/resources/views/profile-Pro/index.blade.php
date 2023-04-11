@@ -30,18 +30,18 @@
             <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{auth()->user()->name}}</h5>
             <span class="text-sm text-gray-500 dark:text-gray-400">{{auth()->user()->email}}</span>
             <div class="flex mt-4 space-x-3 md:mt-6">
-                <a href="{{Storage::url(auth()->user()->profile->cover_letter)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cover Letter</a>
-                <a href="{{Storage::url(auth()->user()->profile->resume)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Resume</a>
+                <a href="{{Storage::url(auth()->user()->profiles->cover_letter)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cover Letter</a>
+                <a href="{{Storage::url(auth()->user()->profiles->resume)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Resume</a>
             </div>
         </div>
         <div class="mx-4">
-        <h3><span class="text-1xl font-bold ">Address</span> : {{auth()->user()->profile->address}}</h3>
-        <h3><span class="text-1xl font-bold ">Gender</span> : {{auth()->user()->profile->gender}}</h3>
-        <h3><span class="text-1xl font-bold ">Phone</span> : {{auth()->user()->profile->phone}}</h3>
-        <h3><span class="text-1xl font-bold ">Bio</span> : {{auth()->user()->profile->bio}}</h3>
-        <h3><span class="text-1xl font-bold ">Member On</span> : {{auth()->user()->profile->created_at->diffForHumans()}}</h3>
-        <h3><span class="text-1xl font-bold ">Experience</span> : {{auth()->user()->profile->experience}}</h3>
-        @if(!empty(auth()->user()->profile->cover_letter))
+        <h3><span class="text-1xl font-bold ">Address</span> : {{auth()->user()->profiles->address}}</h3>
+        <h3><span class="text-1xl font-bold ">Gender</span> : {{auth()->user()->profiles->gender}}</h3>
+        <h3><span class="text-1xl font-bold ">Phone</span> : {{auth()->user()->profiles->phone}}</h3>
+        <h3><span class="text-1xl font-bold ">Bio</span> : {{auth()->user()->profiles->bio}}</h3>
+        <h3><span class="text-1xl font-bold ">Member On</span> : {{auth()->user()->profiles->created_at->diffForHumans()}}</h3>
+        <h3><span class="text-1xl font-bold ">Experience</span> : {{auth()->user()->profiles->experience}}</h3>
+        @if(!empty(auth()->user()->profiles->cover_letter))
         {{-- <p>good</p> --}}
          <p class="text-1xl font-bold "><a href="{{Storage::url(auth()->user()->profile->cover_letter)}}">Cover letter</a></p>
         @else
@@ -73,28 +73,28 @@
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Your Professional Profile</h5>
                 <div>
                     <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                    <input type="text" name="address" id="address" value="{{auth()->user()->profile->address}}"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
+                    <input type="text" name="address" id="address" value="{{auth()->user()->profiles->address}}"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
                     @if($errors->has('address'))
                     <p class="text-red-600">{{$errors->first('address')}}</p>
                     @endif
                 </div>
                 <div>
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
-                    <input type="text" name="phone" id="phone" value="{{auth()->user()->profile->phone}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
+                    <input type="text" name="phone" id="phone" value="{{auth()->user()->profiles->phone}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
                     @if($errors->has('phone'))
                     <p class="text-red-600">{{$errors->first('phone')}}</p>
                     @endif
                 </div>
                 <div>
                     <label for="exp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Experience</label>
-                    <textarea name="exp" id="exp" placeholder="Your Experience" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >{{auth()->user()->profile->experience}}</textarea>
+                    <textarea name="exp" id="exp" placeholder="Your Experience" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >{{auth()->user()->profiles->experience}}</textarea>
                     @if($errors->has('exp'))
                     <p class="text-red-600">{{$errors->first('exp')}}</p>
                     @endif
                 </div>
                 <div>
                     <label for="bio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bio</label>
-                    <textarea name="bio" id="exp" placeholder="Your Bio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">{{auth()->user()->profile->bio}}</textarea>
+                    <textarea name="bio" id="exp" placeholder="Your Bio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">{{auth()->user()->profiles->bio}}</textarea>
                     @if($errors->has('bio'))
                     <p class="text-red-600">{{$errors->first('bio')}}</p>
                     @endif

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('company_id');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
             $table->text('description');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('position');
             $table->string('address');
             $table->string('type');
-            $table->integer('status');
+            $table->string('status');
             $table->date('last_date');
             $table->timestamps();
         });

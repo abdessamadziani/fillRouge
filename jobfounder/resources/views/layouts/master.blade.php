@@ -8,12 +8,12 @@
     @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"  rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-
+    <link rel="stylesheet" href="{{asset('resources/css/mycss.css') }}">
 
 
 </head>
 <body>
-    <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+    <nav class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700  px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0 border-b border-gray-200 dark:border-gray-600">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="http://127.0.0.1:8000" class="flex items-center">
             <img src="{{asset('imgs/jobs.png')}}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
@@ -40,9 +40,7 @@
             <li>
               <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
             </li>
-            <li>
-                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-            </li>
+
 
 
 
@@ -52,10 +50,29 @@
             <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                   <li>
+                        <a href="{{route('profile.show')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile':''}}</a>
+                  </li>
+                  <li>
+                    <a href="{{route('profile.pro')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile Pro':''}}</a>
+              </li>
+                  <li>
                     <a href="{{route('register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As User</a>
                   </li>
                   <li>
                     <a href="{{route('recruiter.register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As Recruiter</a>
+                  </li>
+
+                  <li>
+
+                    <form method="POST" action="{{auth()->user()?route('logout'):''}}">
+                        @csrf
+                        @if (auth()->check())
+                            <button type="submit" class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</button>
+                        @else
+                            <a href="{{ route('login')}} " class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Login</a>
+                        @endif
+                    </form>
+
                   </li>
 
                 </ul>
@@ -74,9 +91,9 @@
             @if(auth()->user())
             @if (auth()->user()->user_type == "recruiter")
             <li>
-                <a href="#" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ auth()->user()->company->name }}</a>
+                <a href="#" class=" capitalize ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ auth()->user()->companies->name }}</a>
                 <a href="#">
-                    <img class=" w-20 h-10 rounded-t-lg" src="{{asset('storage/'.auth()->user()->company->cover_photo)}}" alt="" />
+                    <img class=" w-20 h-10 rounded-t-lg" src="{{asset('storage/'.auth()->user()->companies->cover_photo)}}" alt="" />
                 </a>
             </li>
         @else
@@ -90,7 +107,7 @@
         </div>
         </div>
       </nav>
-     <main class="m-24">
+     <main class="mt-60 mx-10 ">
         @yield('main')
      </main>
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Job;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -12,6 +14,14 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+    //  public function __construct()
+    //  {
+    //      $this->middleware('recruiter',['except'=>array('index')]);
+    //  }
+
+
     public function index(string $id)
     {
         //
@@ -34,7 +44,6 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'cname'=>'required',
             'address'=>'required',
             'phone'=>'required|numeric|digits:10',
             'website'=>'required',
@@ -44,14 +53,34 @@ class CompanyController extends Controller
         //
         $user_id=auth()->user()->id;
           Company::where('user_id',$user_id)->update([
-            'name'=>$cname=$request->input('cname'),
             'address'=>$request->input('address'),
             'phone'=>$request->input('phone'),
             'website'=>$request->input('website'),
-            'slug'=>Str::slug($cname,'-'),
             'description'=>$request->input('description'),
         ]);
         return redirect()->back()->with('msg','Company Info Updated Successfully !');
+    }
+
+    public function updatecompanyname(Request $request)
+    {
+        $this->validate($request,[
+            'cname'=>'required',
+        ]);
+
+        $user_id = auth()->user()->id;
+
+
+            Company::where('user_id', $user_id)->update([
+                'name' =>$cname=$request->input('cname'),
+                'slug'=>Str::slug($cname,'-'),
+
+
+            ]);
+
+            return redirect()->back()->with('msg companyname', 'Company Name Updated Successfully');
+
+
+
     }
 
 

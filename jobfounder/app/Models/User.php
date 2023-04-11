@@ -62,12 +62,23 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function profile()
+    public function profiles()
     {
         return $this->hasOne(Profile::class);
     }
-    public function company()
+    public function companies()
     {
         return $this->hasOne(Company::class);
+    }
+    // start  that's mean that user can create multiples jobs but every job should create by one user
+    public function jobscreate()
+    {
+       return  $this->hasMany(Job::class);
+    }
+    // end
+
+    public function jobs()
+    {
+       return  $this->belongsToMany(Job::class)->withTimeStamps();
     }
 }
