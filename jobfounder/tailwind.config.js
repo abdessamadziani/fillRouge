@@ -13,9 +13,20 @@ module.exports = {
     ],
 
     theme: {
+        screens: {
+            sm: '280px',
+            md: '768px',
+            lg: '976px',
+            xl: '1440px',
+
+          },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                backgroundImage: {
+                    'hero-pattern': "url(assets('img/))",
+                    'footer-texture': "url('/img/footer-texture.png')",
+                  }
             },
         },
     },

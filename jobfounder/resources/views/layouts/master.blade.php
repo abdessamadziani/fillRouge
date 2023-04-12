@@ -11,36 +11,39 @@
     <link rel="stylesheet" href="{{asset('resources/css/mycss.css') }}">
 
 
+
 </head>
 <body>
-    <nav class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700  px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0 border-b border-gray-200 dark:border-gray-600">
+    <nav class="text-white bg-gradient-to-r from-cyan-700 to-blue-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0  border-gray-200 dark:border-gray-600">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="http://127.0.0.1:8000" class="flex items-center">
-            <img src="{{asset('imgs/jobs.png')}}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Job Shearch</span>
+            {{-- <img src="{{asset('imgs/jobs.png')}}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo"> --}}
+            <i class="fas fa-yin-yang text-2xl text-yellow-400 mx-2 "></i>
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Jbs <span class="text-yellow-400">Grab</span></span>
         </a>
         <div class="flex md:order-2">
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Register<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" bg-transparent   font-medium  text-sm px-6 py-2.5 mx-2 text-center inline-flex items-center text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:outline-none focus:ring-yellow-300 rounded-full border-2 duration-1000" type="button">Register<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
           </button>
         </div>
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-            </li>
+          {{-- <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> --}}
+            <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium   dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
 
+            <li>
+              <a href="#" class="block duration-500 py-2 pl-3 pr-4 text-yellow-400  rounded md:bg-transparent md:text-yellow-400 md:p-0 dark:text-white" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="#" class="block duration-500 py-2 pl-3  md:hover:text-yellow-400 md:p-0   dark:hover:bg-yellow-400">About</a>
+            </li>
+            <li>
+              <a href="#" class="block duration-500 py-2 pl-3  md:hover:text-yellow-400 md:p-0   dark:hover:bg-yellow-400">Services</a>
+            </li>
+            <li>
+              <a href="#" class="block duration-500 py-2 pl-3  md:hover:text-yellow-400 md:p-0   dark:hover:bg-yellow-400">Contact</a>
+            </li>
 
 
 
@@ -68,6 +71,14 @@
                         @csrf
                         @if (auth()->check())
                             <button type="submit" class="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</button>
+                            <hr>
+                            @if (auth()->user()->user_type == "recruiter")
+                            <a class="  block m-auto px-2 py-2" href="#">
+                                <img class=" w-20 h-10 rounded-t-lg" src="{{asset('storage/'.auth()->user()->companies->cover_photo)}}" alt="" />
+                            </a>
+                            @else
+                             <button class="block w-full text-left px-4 py-2 font-bold font-mono hover:bg-gray-100 dark:hover:bg-gray-600 text-yellow-400">{{ auth()->user()->name }}</button>
+                            @endif
                         @else
                             <a href="{{ route('login')}} " class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Login</a>
                         @endif
@@ -88,26 +99,50 @@
             <li>
                 <a href="{{ route('recruiter.register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register For Recruiters</a>
             </li> --}}
-            @if(auth()->user())
+
+
+
+            {{-- @if(auth()->user())
             @if (auth()->user()->user_type == "recruiter")
             <li>
-                <a href="#" class=" capitalize ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ auth()->user()->companies->name }}</a>
+                <a href="#" class=" capitalize ml-4 font-bold  text-white md:hover:text-yellow-400 focus:outline focus:outline-2 focus:rounded-sm ">{{ auth()->user()->companies->name }}</a>
                 <a href="#">
                     <img class=" w-20 h-10 rounded-t-lg" src="{{asset('storage/'.auth()->user()->companies->cover_photo)}}" alt="" />
                 </a>
             </li>
         @else
             <li>
-                <a href="#" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ auth()->user()->name }}</a>
+                <a href="#" class="ml-4 font-bold text-white md:hover:text-yellow-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">=>{{ auth()->user()->name }}<=</a>
             </li>
             @endif
-        @endif
+        @endif --}}
 
           </ul>
         </div>
         </div>
       </nav>
-     <main class="mt-60 mx-10 ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <main class="mt-660">
         @yield('main')
      </main>
 
@@ -116,9 +151,9 @@
             <div class="md:flex md:justify-between">
               <div class="mb-6 md:mb-0">
                   <a href="https://flowbite.com/" class="flex items-center">
-                      <img src="{{asset('imgs/jobs.png')}}" class=" rounded-full w-24 h-24  mr-3" alt="FlowBite Logo" />
-                      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Job Shearch</span>
-                  </a>
+                    <i class="fas fa-yin-yang text-2xl text-yellow-400 mx-2 "></i>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Jbs <span class="text-yellow-400">Grab</span></span>
+                </a>
               </div>
               <div class="  grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                   <div>
