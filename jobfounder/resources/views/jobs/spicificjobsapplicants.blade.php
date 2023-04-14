@@ -3,8 +3,11 @@
 @section('main')
 
 
-
-<div class=" relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+<div class=" pt-8 my-4 py-6 mx-10/12">
+    <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 text-center text-cyan-700">Postulants Are Interested Of this Job</h2>
+    <hr class=" sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+  </div>
+<div class=" sm:w-full mt-16 m-auto md:container relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
     <table class=" w-full m-auto text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -65,32 +68,35 @@
                     {{-- {{$user->profile_photo_path}} --}}
                 </th>
                 <td class="px-6 py-4">
+                    <i class="text-blue-400 fas fa-signature"></i>
                     {{$user->name}}<br>
                     {{-- <i class=" text-blue-400 fas fa-clock"></i>&nbsp;{{$job->type}} --}}
                  </td>
-                <td class="px-6 py-4">
+                <td class=" flex items-center gap-3 px-6 py-4">
+                    <img class=" mt-1 w-12 h-12 mb-1 rounded-full  " src="{{asset('imgs/loudspeaker.jpg')}}" alt="loudspeaker"/>
                     {{$app->title}}<br>
                     {{-- <i class=" text-blue-400 fas fa-clock"></i>&nbsp;{{$job->type==1?'fulltime':'remote'}} --}}
                  </td>
 
                 <td class="px-6 py-4">
-                    <i class=" text-blue-400 fas fa-map-marker"></i>
-                    {{$app->position}}
+                    {{$app->position}}<br>
+                    <i class=" text-blue-400 fas fa-clock"></i>
+                    &nbsp;{{$app->type==1?'fulltime':'remote'}}
                 </td>
                 <td class="px-6 py-4">
-                    <i class=" text-blue-400 fas fa-globe-americas"></i>
-                    {{$user->profiles->address}}
+                    <i class=" text-blue-400 fas fa-map-marker"></i>&nbsp; {{$user->profiles->address}}
                 </td>
-                <td class=" flex px-6 py-4 text-right">
-                    <i class=" text-blue-400 fas fa-globe-americas"></i>
-                    {{$user->gender}}
+                <td class=" px-6 py-4 ">
+                    <i class=" text-blue-400 fas fa-venus-mars text-l"></i>&nbsp; {{$user->gender}}
+
                 </td>
                 <td >
+                    <i class=" text-blue-400 fas fa-globe-americas"></i>
                     {{$user->pivot->created_at->diffForHumans()}}
                 </td>
 
                 <td >
-                    <a href="{{Storage::url($user->profiles->resume)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cover Letter</a>
+                    <a href="{{Storage::url($user->profiles->resume)}}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Resume</a>
                 </td>
 
             </tr>

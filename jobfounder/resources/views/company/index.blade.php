@@ -3,7 +3,7 @@
 @section('title','Jobs| Company')
 
 
-<div class="mt-20 mb-20 mx-10">
+<div class=" mt-15 mb-20">
 
         <div id="indicators-carousel" class="relative w-full" data-carousel="static">
         <!-- Carousel wrapper -->
@@ -47,33 +47,89 @@
             </span>
         </button>
     </div>
-    <div class="m-10">
-    <h1 class=" p-4 text-center text-2xl font-bold text-gray-900 ">Description</h1>
-    <p class=" p-4text-dark">{{$company->description}}</p>
+    <div class="my-4 py-6">
+        <h2 class="sm:text-2xl md:text-6xl font-extrabold mx-auto my-6 w-100 text-center text-cyan-700 capitalize">introduction about our company</h2>
+        <hr class="w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+      </div>
+
+
+    <div class="sm:my-8 w-10/12 grid sm:grid-cols-1 md:grid-cols-2 mx-auto ">
+        <div>
+            <img src="{{asset('imgs/company.png')}}" alt="company image">
+        </div>
+        <div class="my-auto ">
+            <p class=" leading-loose text-xl font-bold"><mark>{{$company->name}}</mark> is a leading provider of different services. Our mission is to deliver high-quality solutions to our clients while maintaining the highest level of customer satisfaction. With years of experience in the industry, we have established a strong reputation for providing innovative and reliable solutions.
+
+                Our team of experts consists of highly skilled professionals who are committed to delivering excellence in all aspects of our business. We leverage the latest technologies and industry best practices to ensure that our clients receive the most effective solutions for their needs.
+
+                At <mark>{{$company->name}}</mark>, we are dedicated to creating long-lasting relationships with our clients. We strive to understand their unique requirements and work collaboratively with them to achieve their business objectives. Our goal is to provide exceptional value and service, which is reflected in our track record of client satisfaction.</p>
+        </div>
     </div>
 
-    <div class=" mb-4   bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-green-200  m-auto max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <svg class="w-10 h-10 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg>
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">{{$company->name}}</h5>
-        </a>
-        <p class="mb-3 font-normal text-white dark:text-gray-400">Address : {{$company->address}}</p>
-        <p class="mb-3 font-normal text-white dark:text-gray-400">Phone : {{$company->phone}}</p>
-        <h2 class="mb-3 font-normal text-white dark:text-gray-400"> Our WebSite :  <a href="#" class="inline-flex items-center text-pink-500 hover:underline">
-            {{$company->website}}
-            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
-        </a> </h2>
+
+    <div class=" py-16 my-16 grid sm:grid-cols-1 md:grid-cols-3 mx-auto text-center ">
+        <div>
+            <i class=" text-blue-400 text-6xl fas fa-phone"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">{{$company->phone}}</h3>
+        </div>
+        <div class="sm:my-8 md:my-0">
+            <i class=" text-blue-400 text-6xl   fas fa-map-marker"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">{{$company->address}}</h3>
+        </div>
+        <div>
+            <i class=" text-blue-400 text-6xl fas fa-globe"></i>
+            <h3><a href="#" class="mt-8 text-3xl  font-semibold inline-flex items-center text-cyan-700 hover:underline">{{$company->website}}</a></h3>
+        </div>
 
     </div>
 
-    <h2 class=" m-14 p-10 text-4xl w-100 text-center text-blue-500">Recent Jobs Of This Company</h2>
 
-    <div class=" relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+<div class="grid sm:h-2/3  sm:grid-cols-1 sm:w-full  md:grid-cols-2 gap-4 md:h-1/2 md:W-10/12 mx-auto border-2 border-grey-400 rounded-lg p-6">
+    <div class="my-auto">
+      <img class="h-auto w-full bg-cover  max-w-lg rounded-lg" src="{{asset('storage/'.$company->cover_photo)}}" alt="image description">
+    </div>
+
+    <figure class="max-w-screen-md my-auto ">
+        <p class="text-4xl my-4 font-semibold text-gray-900 dark:text-white">{{$company->name}}</p>
+
+        <div class="flex items-center mb-4 text-yellow-300">
+            <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg aria-hidden="true" class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+        </div>
+        <blockquote>
+            <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{$company->description}}</p>
+        </blockquote>
+        <figcaption class="flex items-center mt-6 space-x-3">
+            <img class="w-6 h-6 rounded-full" src="{{asset('storage/'.$company->user->profile_photo_path)}}" alt="profile picture">
+            <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">
+                <cite class="pr-3 font-medium text-gray-900 dark:text-white">{{$company->user->name}}</cite>
+                <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">responsible at {{$company->name}} </cite>
+            </div>
+        </figcaption>
+    </figure>
+
+</div>
+
+
+    <div class="sm:my-8 md:my-4 py-6">
+        <h2 class=" sm:text-2xl md:text-6xl font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Recent Jobs Of this Company</h2>
+        <hr class="w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+      </div>
+    <div class=" md:container mx-auto relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
         <table class=" w-full m-auto text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Avatar
+                        Logo
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        <div class="flex items-center">
+                            Title
+                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                        </div>
                     </th>
                     <th scope="col" class="px-6 py-3">
                         <div class="flex items-center">
@@ -103,8 +159,11 @@
                 @foreach ($company->jobs as $job)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        image
-                    </th>
+                        <img class=" mt-1 w-12 h-12 mb-1 rounded-full shadow-lg bg-cover m-auto " src="{{asset('storage/'.$job->company->cover_photo)}}" alt="Bonnie image"/>                    </th>
+                    <td class=" flex gap-4 items-center px-6 py-4">
+                        <img class=" mt-1 w-12 h-12 mb-1 rounded-full  " src="{{asset('imgs/loudspeaker.jpg')}}" alt="loudspeaker"/>
+                        {{$job->title}}
+                     </td>
                     <td class="px-6 py-4">
                         {{$job->position}}<br>
                         <i class=" text-blue-400 fas fa-clock"></i>&nbsp;{{$job->type}}
@@ -127,6 +186,9 @@
 
             </tbody>
         </table>
+        <div class="mt-3 flex flex-col mx-3 justify-center p-3">
+            {{ $jobs->links('pagination::tailwind') }}
+        </div>
     </div>
 
 </div>

@@ -24,15 +24,19 @@ class JobController extends Controller
     public function index()
     {
         //
-        $jobs=Job::paginate(5);
+        $jobs=Job::all();
+        $jobs=Job::paginate(3);
         return view('welcome',compact('jobs'));
     }
 
     public function myjobs()
     {
-        $user_id=auth()->user()->id;
-        $jobs=Job::where('user_id',$user_id)->get();
-        return view('jobs.myjobs',compact('jobs'));
+        $jobs=Job::where('user_id',auth()->user()->id)->get();
+        // $nbapplicants=Job::where('user_id',auth()->user()->id)->where('id',$id)->get();
+
+        //dd($jobs);
+
+        return view('jobs.myjobs',compact(['jobs']));
     }
 
     /**
@@ -79,17 +83,22 @@ class JobController extends Controller
     }
     public function applicant()
     {
-         $applicants=Job::has('user')->where('user_id',auth()->user()->id)->get();
+        //  $applicants=Job::has('users')->where('user_id',auth()->user()->id)->get();
+        $applicants=Job::where('user_id',auth()->user()->id)->get();
 
+           //dd($applicants);
         return View('jobs.applicants',compact('applicants'));
 
     }
 
     public function jobapplicants(string $id)
     {
-        // $job_id=job::find($id);
 
-         $applicants=Job::has('user')->where('user_id',auth()->user()->id)->where('id',$id)->get();
+        //  $applicants=Job::has('users')->where('user_id',auth()->user()->id)->where('id',$id)->get();
+         $applicants=Job::where('user_id',auth()->user()->id)->where('id',$id)->get();
+
+        //    dd($applicants);
+
          return View('jobs.spicificjobsapplicants',compact('applicants'));
 
     }

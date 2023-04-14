@@ -2,8 +2,11 @@
 @section('title','Jobs of company')
 @section('main')
 
-
-<div class=" relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+<div class=" pt-8 my-4 py-6 mx-10/12">
+    <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 text-center text-cyan-700">Our Announces</h2>
+    <hr class=" sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+  </div>
+<div class="mt-16 relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
     <table class=" w-full m-auto text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -41,15 +44,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($jobs as $job)
+         @foreach ($jobs as $job)
+
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    image
-                </th>
-                <td class="px-6 py-4">
-                    {{$job->title}}<br>
-                    {{-- <i class=" text-blue-400 fas fa-clock"></i>&nbsp;{{$job->type}} --}}
+                    <img class=" mt-1 w-12 h-12 mb-1 rounded-full shadow-lg bg-cover m-auto " src="{{asset('storage/'.$job->company->cover_photo)}}" alt="Bonnie image"/>                </th>
+                <td class=" flex gap-4 items-center px-4 py-4">
+                    <img class=" mt-1 w-12 h-12 mb-1 rounded-full  " src="{{asset('imgs/loudspeaker.jpg')}}" alt="loudspeaker"/>
+                    {{$job->title }}<br>
                  </td>
+
                 <td class="px-6 py-4">
                     {{$job->position}}<br>
                     <i class=" text-blue-400 fas fa-clock"></i>&nbsp;{{$job->type==1?'fulltime':'remote'}}
@@ -64,16 +68,20 @@
                 </td>
                 <td class=" flex px-6 py-4 text-right">
                     <a href="{{route('myjob.edit',[$job->id,$job->slug])}}">
-                        <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Edit</button>
+                        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2">Edit</button>
                     </a>
                     <form action="{{route('myjob.delete',[$job->id])}}" method="POST">@csrf
                         {{-- <a href="{{route('myjob.delete',[$job->id])}}"> --}}
                             <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Delete</button>
                         {{-- </a> --}}
                     </form>
+
                     <a href="{{route('job.applicants',[$job->id])}}">
-                        <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"> Postulants</button>
+                        <button type="button" class="relative text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"> Postulants
+                            <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-yellow-400 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{$job->users->count();}}</div>
+                        </button>
                     </a>
+
                 </td>
             </tr>
             @endforeach

@@ -3,7 +3,12 @@
 
 @section('main')
 
-<div class=" mb-10 block w-100 mx-10 m-auto   p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<div class=" pt-8 my-4 py-6 mx-10/12">
+    <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 text-center text-cyan-700">Add New Announce</h2>
+    <hr class=" sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+  </div>
+
+<div class=" mt-10 mb-10 block sm:w-full md:mx-10 m-auto   p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
     <form action="{{route('job.create')}}" method="POST"> @csrf
             <input type="hidden" name="status" id="status" value="1" />
         <div class="grid md:grid-cols-3 md:gap-6">

@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="text-white bg-gradient-to-r from-cyan-700 to-blue-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0  border-gray-200 dark:border-gray-600">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <div class=" w-full flex flex-wrap items-center justify-between mx-auto">
         <a href="http://127.0.0.1:8000" class="flex items-center">
             {{-- <img src="{{asset('imgs/jobs.png')}}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo"> --}}
             <i class="fas fa-yin-yang text-2xl text-yellow-400 mx-2 "></i>
@@ -56,8 +56,14 @@
                         <a href="{{route('profile.show')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile':''}}</a>
                   </li>
                   <li>
+                   @if(auth()->user())
+                    @if (auth()->user()->user_type =="recruiter")
+                    <a href="{{route('company.create')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'CompanyProfile':''}}</a>
+                    @else
                     <a href="{{route('profile.pro')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile Pro':''}}</a>
-              </li>
+                    @endif
+                   @endif
+                 </li>
                   <li>
                     <a href="{{route('register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As User</a>
                   </li>
@@ -192,7 +198,7 @@
               </div>
           </div>
           <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div class="sm:flex sm:items-center sm:justify-between">
+          <div class="sm:flex sm:flex-col md:flex-row sm:items-center sm:justify-between">
               <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
               </span>
               <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">

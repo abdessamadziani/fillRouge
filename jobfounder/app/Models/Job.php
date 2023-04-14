@@ -46,7 +46,7 @@ class Job extends Model
        return  $this->belongsTo(Category::class);
     }
 
-    // always job can create bu one user
+    // always job can created by one user
     public function user()
     {
        return  $this->belongsTo(User::class);
@@ -58,13 +58,14 @@ class Job extends Model
     {
        return  $this->belongsToMany(User::class)->withTimeStamps();
     }
+    
 
     public function checkapply()
     {
       return DB::table('job_user')->where('user_id',auth()->user()->id)->where('job_id',$this->id)->exists();
 
     }
-    
+
 
 
 }
