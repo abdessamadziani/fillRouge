@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Job;
+use App\Models\Company;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
+
+
+
 
 
 
@@ -17,24 +23,49 @@ class JobController extends Controller
 
     // public function __construct()
     // {
-    //     $this->middleware('recruiter',['except'=>array('index','show')]);
+    //     $this->middleware('recruiter',['except'=>array('index','show','myjobs','applicant','jobapplicants')]);
     // }
+
+    //  public function __construct()
+    // {
+    //     $this->middleware('seeker',['except'=>array('index','show','apply')]);
+    // }
+
+    public function contact()
+    {
+        //
+        $jobs=Job::latest()->paginate(3);
+        $companies=Company::all();
+        return view('welcome');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        //
+       $details = [
+        'name'=>$request->name,
+        'email'=>$request->email,
+        'subject'=>$request->subject,
+        'message'=>$request->message,
+
+       ];
+       Mail::to('zianiabdssamad30@gmail.com')->send(new ContactMail($details));
+       return back();
+    }
+
 
 
     public function index()
     {
         //
-        $jobs=Job::all();
-        $jobs=Job::paginate(3);
-        return view('welcome',compact('jobs'));
+        $jobs=Job::latest()->paginate(3);
+        $companies=Company::all();
+        return view('welcome',compact('jobs','companies'));
     }
 
     public function myjobs()
     {
         $jobs=Job::where('user_id',auth()->user()->id)->get();
-        // $nbapplicants=Job::where('user_id',auth()->user()->id)->where('id',$id)->get();
-
-        //dd($jobs);
 
         return view('jobs.myjobs',compact(['jobs']));
     }

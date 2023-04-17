@@ -21,6 +21,18 @@ class CompanyController extends Controller
     //      $this->middleware('recruiter',['except'=>array('index')]);
     //  }
 
+    // public function __construct()
+    // {
+    //     $this->middleware('seeker',['except'=>array('index')]);
+    // }
+
+    // public function allcompanies()
+    // {
+    //     $companies = Company::all();
+    //     // dd($companies); // this will print the output of the query to the screen
+    //     return view('welcome',compact('companies'));
+    // }
+
 
     public function index(string $id)
     {
@@ -28,6 +40,8 @@ class CompanyController extends Controller
         $company=Company::find($id);
         return view('company.index',compact('company'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.

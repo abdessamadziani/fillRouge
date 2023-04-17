@@ -66,12 +66,12 @@
 
         </div>
 
-<section class=" mt-3 bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply mb-5">
+<section id="about" class=" mt-3 bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply mb-5">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1  class="  mt-12 mb-8  sm:text-3xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">the best website for your job <span class=" lg:bg-yellow-400 rounded-full lg:px-10 pb-3  ">career</span></h1>
         <p class=" mt-3 mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-10 lg:px-48">Our website is a platform that connects job seekers with employers by providing a comprehensive list of job openings in various fields and industries. The site features a user-friendly interface that makes it easy for individuals to search for job vacancies based on their qualifications and preferences.</p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 md:space-x-6">
-            <a href="#" class="  inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            <a href="#" id="gs" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900" >
                 Get started
                 <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
@@ -83,10 +83,9 @@
 </section>
 
       <div class="my-4 py-6">
-        <h2 class=" text-6xl font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Recent Jobs</h2>
-        <hr class="w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+        <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Recent Jobs</h2>
+        <hr class="sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
       </div>
-
         <div class="sm:w-full  md:container mx-auto  relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
             <table class=" w-full m-auto text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -159,11 +158,45 @@
                 </tbody>
             </table>
 
-            {{-- <div class="mt-3 flex flex-col mx-3 justify-center p-3">
+            <div class="mt-3 flex flex-col mx-3 justify-center p-3">
                 {{ $jobs->links('pagination::tailwind') }}
-            </div> --}}
+            </div>
 
         </div>
+
+
+        <div class=" pt-8 my-4 py-6 mx-10/12" id="service">
+            <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 text-center text-cyan-700">Our Services</h2>
+            <hr class=" sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+          </div>
+
+    <div class=" py-8 my-16 grid sm:grid-cols-1 md:grid-cols-3 gap-y-16 mx-auto text-center ">
+        <div>
+            <i class=" text-6xl text-cyan-700 fas fa-mail-bulk"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">Job postings</h3>
+        </div>
+        <div class="sm:my-8 md:my-0">
+            <i class="text-6xl text-cyan-700 fas fa-briefcase"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">Offrening Jobs</h3>
+        </div>
+        <div>
+            <i class="text-6xl text-cyan-700 fas fa-user-tie"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">connect applicants with companies</h3>
+        </div>
+        <div>
+            <i class="text-6xl text-cyan-700 fas fa-hands-helping"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">Interview coaching</h3>
+        </div>
+        <div class="sm:my-8 md:my-0">
+            <i class="text-6xl text-cyan-700 fas fa-hand-holding-usd"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">Salary information</h3>
+        </div>
+        <div>
+            <i class="text-6xl text-cyan-700 fas fa-cubes"></i>
+            <h3 class=" mt-8 text-3xl font-semibold text-gray-400 dark:text-white">Career counseling</h3>
+        </div>
+
+    </div>
 
 
 
@@ -182,7 +215,8 @@
                     <div class="flex items-center p-4 pl-1 font-bold capitalize text-lg pb-3 gap-4"><i class="fas fa-map-marker-alt"></i><p>africa, morocco</p></div>
                 </div>
                 <div class="sm:w-12/12 sm:m-auto sm:rounded-l-lg md:w-10/12  bg-white rounded-r-lg ">
-                    <form action="" method="POST">
+                    <form action="{{route('contact.send')}}" method="POST">
+                        @csrf
                     <div class="grid grid-cols-2 grid-rows-3 gap-3 p-4 ">
                         <div class="">
                             <label class=" w-full block text-gray-500 font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -229,28 +263,56 @@
 
             </div>
         </div>
+        <div class="my-4 py-6">
+            <h2 id="company" class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Companies we're Collaborate With</h2>
+            <hr class="sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+          </div>
+          <div class=" w-10/12 grid sm:grid-cols-1 md:grid-cols-4 gap-4 mx-auto mb-10">
+            @for($i=0;$i<6;$i++)
+              @foreach($companies as $company)
+                <div class="  py-3 w-full   max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    {{-- <div style="background-image: url('{{asset('storage/'.$company->cover_photo)}}');" class="w-full h-2/3 bg-cover bg-center">
+
+                    </div> --}}
+                    <div class="flex flex-col items-center pb-10">
+                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{asset('storage/'.$company->cover_photo)}}" alt="Bonnie image"/>
+                        <h5 class="mb-1 text-xl font-medium text-black dark:text-white">{{$company->name}}</h5>
+                        <span class=" px-3 text-sm text-gray-500 dark:text-gray-400">{{$company->description}}</span>
+                        <div class="flex mt-4 space-x-3 md:mt-6">
+                            <a href="{{route('company.index',[$company->id,$company->slug])}}"  class="inline-flex items-center px-5 py-3 text-sm font-bold rounded-full text-center text-white bg-gradient-to-r from-cyan-500 to-blue-500   focus:ring-4  ">Visite Company</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                @endforeach
+@endfor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+        <script src="./myassets/myjs.js"></script>
+
 
         @endsection
 
 
 
-
-  {{-- <div class=" mt-10 sm:flex sm:justify-center sm:items-center  bg-dots-darker bg-center bg-gray-100 selection:bg-orange-500 selection:text-white">
-    @if (Route::has('login'))
-        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-            @else
-                <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
-
-</div> --}}
 
 
 

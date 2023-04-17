@@ -47,12 +47,21 @@ Route::post('/company/logo',[CompanyController::class,'updatelogo'])->name('comp
 Route::post('/company/cover',[CompanyController::class,'updatecoverimage'])->name('company.cover');
 Route::post('/company/name',[CompanyController::class,'updatecompanyname'])->name('companyname.update');
 
+Route::get('/contact-us',[JobController::class,'contact']);
+Route::post('/contact-us',[JobController::class,'sendEmail'])->name('contact.send');
 
 
 
 
 
 
+
+
+
+
+Route::get('/mylogin', function () {
+    return view('myauth.signin');
+});
 
 
 

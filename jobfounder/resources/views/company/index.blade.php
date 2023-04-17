@@ -84,9 +84,9 @@
     </div>
 
 
-<div class="grid sm:h-2/3  sm:grid-cols-1 sm:w-full  md:grid-cols-2 gap-4 md:h-1/2 md:W-10/12 mx-auto border-2 border-grey-400 rounded-lg p-6">
-    <div class="my-auto">
-      <img class="h-auto w-full bg-cover  max-w-lg rounded-lg" src="{{asset('storage/'.$company->cover_photo)}}" alt="image description">
+<div class="grid sm:h-full  sm:grid-cols-1 sm:w-full md:h-2/3  md:grid-cols-2 gap-4  md:W-10/12 mx-auto border-2 border-grey-400 rounded-lg p-2">
+    <div class="my-auto h-2/3">
+      <img class="h-full w-full bg-cover  max-w-lg rounded-lg" src="{{asset('storage/'.$company->cover_photo)}}" alt="image description">
     </div>
 
     <figure class="max-w-screen-md my-auto ">
@@ -186,9 +186,7 @@
 
             </tbody>
         </table>
-        <div class="mt-3 flex flex-col mx-3 justify-center p-3">
-            {{ $jobs->links('pagination::tailwind') }}
-        </div>
+
     </div>
 
 </div>
