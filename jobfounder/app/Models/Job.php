@@ -58,12 +58,11 @@ class Job extends Model
     {
        return  $this->belongsToMany(User::class)->withTimeStamps();
     }
-    
+
 
     public function checkapply()
     {
       return DB::table('job_user')->where('user_id',auth()->user()->id)->where('job_id',$this->id)->exists();
-
     }
 
 

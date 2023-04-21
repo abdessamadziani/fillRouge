@@ -268,7 +268,7 @@
             <hr class="sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
           </div>
           <div class=" w-10/12 grid sm:grid-cols-1 md:grid-cols-4 gap-4 mx-auto mb-10">
-            @for($i=0;$i<6;$i++)
+            @for($i=0;$i<2;$i++)
               @foreach($companies as $company)
                 <div class="  py-3 w-full   max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     {{-- <div style="background-image: url('{{asset('storage/'.$company->cover_photo)}}');" class="w-full h-2/3 bg-cover bg-center">

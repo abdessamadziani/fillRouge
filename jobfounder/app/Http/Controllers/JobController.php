@@ -60,7 +60,7 @@ class JobController extends Controller
         //
         $jobs=Job::latest()->paginate(3);
         $companies=Company::all();
-        return view('welcome',compact('jobs','companies'));
+        return view('welcome',compact(['jobs','companies']));
     }
 
     public function myjobs()
@@ -114,7 +114,6 @@ class JobController extends Controller
     }
     public function applicant()
     {
-        //  $applicants=Job::has('users')->where('user_id',auth()->user()->id)->get();
         $applicants=Job::where('user_id',auth()->user()->id)->get();
 
            //dd($applicants);

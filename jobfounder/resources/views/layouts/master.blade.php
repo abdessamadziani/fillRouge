@@ -62,8 +62,10 @@
                    @if(auth()->user())
                     @if (auth()->user()->user_type =="recruiter")
                     <a href="{{route('company.create')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'CompanyProfile':''}}</a>
-                    @else
+                    @elseif(auth()->user()->user_type =="seeker")
                     <a href="{{route('profile.pro')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile Pro':''}}</a>
+                    @else
+                    <a href="{{route('admin.dashboard')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Admin Dashboard':''}}</a>
                     @endif
                    @endif
                  </li>

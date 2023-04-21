@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\RecruiterRegisterController;
 
 
@@ -49,6 +51,11 @@ Route::post('/company/name',[CompanyController::class,'updatecompanyname'])->nam
 
 Route::get('/contact-us',[JobController::class,'contact']);
 Route::post('/contact-us',[JobController::class,'sendEmail'])->name('contact.send');
+
+Route::get('/admin/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+Route::get('/admin/users',[AdminController::class,'getusers'])->name('admin.users');
+
+
 
 
 
