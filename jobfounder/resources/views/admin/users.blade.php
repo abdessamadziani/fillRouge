@@ -167,6 +167,11 @@
     </div>
 
 
+
+</div>
+
+<div class=" my-5 sm:ml-64">
+    <div class=" w-4/12 mx-auto"><canvas id="myChartx"></canvas></div>
 </div>
 
 
@@ -182,12 +187,28 @@
 
 
 
-
-
   <script src="https://kit.fontawesome.com/24dbd9ce21.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('myChartx');
 
-
-
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['All Users','Job Seekers', 'Recruiters'],
+    datasets: [{
+      label: '# of Votes',
+      data: [{!! json_encode($allusers->count()) !!},{!! json_encode($allseekers->count()) !!},{!! json_encode($allrecruiters->count()) !!}],
+      borderWidth: 2,
+      borderColor:['#2C74B3', '#61876E', '#FD8A8A', '#EAEAEA'],
+      backgroundColor: ['#9BD0F5', '#CDE990', '#FFDCA9', '#EEEEEE'],
+    }]
+  },
+  options: {
+   Response:true,
+  },
+});
+</script>
 
 </body>
 </html>

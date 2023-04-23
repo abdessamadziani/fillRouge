@@ -33,9 +33,6 @@ class JobController extends Controller
 
     public function contact()
     {
-        //
-        $jobs=Job::latest()->paginate(3);
-        $companies=Company::all();
         return view('welcome');
     }
 
@@ -58,10 +55,41 @@ class JobController extends Controller
     public function index()
     {
         //
-        $jobs=Job::latest()->paginate(3);
+        $jobs=Job::latest()->paginate(6);
         $companies=Company::all();
         return view('welcome',compact(['jobs','companies']));
     }
+
+
+    public function alljobs(Request $request)
+    {
+        //
+        $keyword=$request->input('title');
+        $type=$request->input('type');
+        $category=$request->input('category_id');
+        $address=$request->input('address');
+        // dd($keyword .' '. $type.''.$category.''.$address);
+        if($keyword || $type || $category || $address)
+        {
+            $jobs=Job::where('title','LIKE','%'.$keyword.'%')
+            ->orwhere('type',$type)
+            ->orwhere('category_id',$category)
+            ->orwhere('address','title','LIKE','%'.$address.'%')->paginate(6);
+            $companies=Company::all();
+            return view('welcome',compact(['jobs','companies']));
+
+        }
+        else
+        {
+
+            $jobs=Job::latest()->paginate(6);
+            $companies=Company::all();
+            return view('welcome',compact(['jobs','companies']));
+        }
+    }
+
+
+
 
     public function myjobs()
     {

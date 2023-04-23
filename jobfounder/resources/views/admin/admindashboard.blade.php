@@ -230,9 +230,16 @@
     <div><canvas id="myChart1"></canvas></div>
     <div class="col-span-2"><canvas id="myChart2"></canvas></div>
 </div>
-<div class="p-4 sm:ml-64  mx-auto   my-5 py-12 grid grid-cols-2 gap-x-2 ">
-    <div><canvas id="myChart3"></canvas></div>
+<div class=" sm:ml-100 pt-8 my-4 py-6 mx-10/12">
+    <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 text-center text-cyan-700">Results Of Today</h2>
+    <hr class=" sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
+  </div>
+
+<div class="p-4 sm:ml-64   mx-auto    my-5 py-12  ">
+    <div class="w-10/12 mx-auto"><canvas id="myChart3"></canvas></div>
 </div>
+
+
 
 
 <div class="p-4 sm:ml-64  grid grid-cols-3 mx-auto gap-4">
@@ -304,18 +311,21 @@ const ctx2 = document.getElementById('myChart2');
 new Chart(ctx2, {
   type: 'bar',
   data: {
-    labels: ['Seekers',"Today's seekers",'Jobs',"Today 's jobs",'Companies',"Today's seekers copmanies"],
+    labels: ['Seekers','Jobs','Applicants','Companies'],
     datasets: [{
       label: '# of Votes',
-      data: [{!! json_encode($nbseekers) !!},{!! json_encode($newSeekersCount) !!},{!! json_encode($nbjobs) !!},{!! json_encode($newJobsCount) !!} ,{!! json_encode($nbcompanies) !!},{!! json_encode($newCompaniesCount) !!}],
+      data: [{!! json_encode($nbseekers) !!},{!! json_encode($nbjobs) !!},{!! json_encode($totalapplicants) !!},{!! json_encode($nbcompanies) !!}],
       borderWidth: 3,
-      borderColor: '#36A2EB',
-      backgroundColor: '#9BD0F5',
+      borderColor:['#2C74B3', '#61876E', '#FD8A8A', '#EAEAEA'],
+      backgroundColor: ['#9BD0F5', '#CDE990', '#FFDCA9', '#EEEEEE'],
     }]
   },
   options: {
     indexAxis: 'y',
    Response:true,
+   defaultFontFamily: 'Arial',
+  FontSize: 30,
+  fontColor:'red',
   },
 });
 
@@ -323,21 +333,25 @@ new Chart(ctx2, {
 
 
 const ctx3 = document.getElementById('myChart3');
-
 new Chart(ctx3, {
-  type: '',
+  type: 'line',
   data: {
-    labels: ['Total Applicants', 'Applicants of today '],
+    labels: ["Today's Seekers","Today's Jobs","Today's Applicants","Today's Companies"],
     datasets: [{
-      label: '# of Votes',
-      data: [{!! json_encode($totalapplicants) !!},{!! json_encode($newApplicantsCount) !!} ,{!! json_encode($nbcompanies) !!}],
-      borderWidth: 1
+     label: '# of Votes',
+      data: [{!! json_encode($newSeekersCount) !!},{!! json_encode($newJobsCount) !!},{!! json_encode($newApplicantsCount) !!},{!! json_encode($newCompaniesCount) !!},{!! json_encode($newCompaniesCount) !!}],
+      borderWidth: 3,
+      borderColor:['#2C74B3', '#61876E', '#FD8A8A', '#EAEAEA'],
+      backgroundColor: ['#9BD0F5', '#CDE990', '#FFDCA9', '#EEEEEE'],
     }]
   },
   options: {
+    indexAxis: 'x',
    Response:true,
   },
 });
+
+
 
 
 

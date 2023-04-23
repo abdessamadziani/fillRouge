@@ -24,6 +24,8 @@ use App\Http\Controllers\RecruiterRegisterController;
 
 
 Route::get('/',[App\Http\Controllers\JobController::class,'index']);
+Route::get('job/alljobs',[App\Http\Controllers\JobController::class,'alljobs'])->name('alljobs');
+
 Route::get('/job/{id}/{slug}',[JobController::class,'show'])->name('jobs.show');
 Route::get('myjobs',[JobController::class,'myjobs'])->name('myjobs');
 Route::get('myjobs/edit/{id}/{slug}',[JobController::class,'edit'])->name('myjob.edit');

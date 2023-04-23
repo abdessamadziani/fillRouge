@@ -86,7 +86,32 @@
         <h2 class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Recent Jobs</h2>
         <hr class="sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
       </div>
+
         <div class="sm:w-full  md:container mx-auto  relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
+ <form action="{{route('alljobs')}}" method="GET">
+    <div class=" w-10/12  mx-auto grid grid-cols-5 gap-4 mb-4">
+        <input type="text" id="title" name="title" class="bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5" placeholder="Keyword">
+        <select id="type" name="type" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none  block w-full p-2.5">
+            <option selected>Type</option>
+            <option value="1">fulltime</option>
+            <option value="0">remote</option>
+          </select>
+
+          <select id="category_id" name="category_id" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5 ">
+            <option selected>Category</option>
+            @foreach(App\models\Category::all() as $cat)
+            <option value="{{$cat->id}}">{{$cat->name}}</option>
+            @endforeach
+          </select>
+          <input type="text" id="address" name="address" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5" placeholder="Address ">
+
+          <button type="submit" class=" w-1/2 ml-auto text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-3 text-center ">Shearch</button>
+
+    </div>
+</form>
+
+
+
             <table class=" w-full m-auto text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
