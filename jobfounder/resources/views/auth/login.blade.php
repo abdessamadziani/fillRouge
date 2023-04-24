@@ -1,4 +1,9 @@
 <x-guest-layout>
+
+    <link rel="stylesheet" href="{{asset('./myassets/mystyle.css')}}">
+
+    <div id="ld" class="triple-spinner"></div>
+
     <div class="sm:w-full md:w-10/12 grid sm:grid-cols-1 md:grid-cols-2 gap-6 mx-auto ">
 
 
@@ -71,6 +76,12 @@
 
 
 </div>
+<script>
+    var loader = document.getElementById('ld');
+    window.addEventListener('load', function() {
+    loader.style.display = "none";
+            });
+</script>
 </x-guest-layout>
 
 

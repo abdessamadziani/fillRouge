@@ -12,6 +12,8 @@
         @extends('layouts.master')
         @section('title','welcome')
         @section('main')
+        {{-- <div id="ld" class="triple-spinner"></div> --}}
+
         <div class=" mt-2 grid sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
             <div class=" sm:w-full sm:mt-16  md:container md:mt-2 ">
                 <style>svg#freepik_stories-job-offers:not(.animated) .animable {opacity: 0;}svg#freepik_stories-job-offers.animated #freepik--background-complete--inject-5 {animation: 1s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) lightSpeedLeft;animation-delay: 0s;}svg#freepik_stories-job-offers.animated #freepik--Floor--inject-5 {animation: 1s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideDown;animation-delay: 0s;}svg#freepik_stories-job-offers.animated #freepik--Device--inject-5 {animation: 1.6s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) fadeIn,6s Infinite  linear heartbeat;animation-delay: 0s,1.6s;}svg#freepik_stories-job-offers.animated #freepik--window-2--inject-5 {animation: 1s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) zoomOut;animation-delay: 0s;}svg#freepik_stories-job-offers.animated #freepik--window-1--inject-5 {animation: 1s 1 forwards cubic-bezier(.36,-0.01,.5,1.38) slideDown,6s Infinite  linear shake;animation-delay: 0s,1s;}svg#freepik_stories-job-offers.animated #freepik--Character--inject-5 {animation: 1s 1 forwards ease-out slideDown,3s Infinite  linear floating;animation-delay: 0s,1s;}            @keyframes lightSpeedLeft {              from {                transform: translate3d(-50%, 0, 0) skewX(20deg);                opacity: 0;              }              60% {                transform: skewX(-10deg);                opacity: 1;              }              80% {                transform: skewX(2deg);              }              to {                opacity: 1;                transform: translate3d(0, 0, 0);              }            }                    @keyframes slideDown {                0% {                    opacity: 0;                    transform: translateY(-30px);                }                100% {                    opacity: 1;                    transform: translateY(0);                }            }                    @keyframes fadeIn {                0% {                    opacity: 0;                }                100% {                    opacity: 1;                }            }                    @keyframes heartbeat {                0% {                    transform: scale(1);                }                10% {                    transform: scale(1.1);                }                30% {                    transform: scale(1);                }                40% {                    transform: scale(1);                }                50% {                    transform: scale(1.1);                }                60% {                    transform: scale(1);                }                100% {                    transform: scale(1);                }            }                    @keyframes zoomOut {                0% {                    opacity: 0;                    transform: scale(1.5);                }                100% {                    opacity: 1;                    transform: scale(1);                }            }                    @keyframes shake {                10%, 90% {                    transform: translate3d(-1px, 0, 0);                  }                  20%, 80% {                    transform: translate3d(2px, 0, 0);                  }                  30%, 50%, 70% {                    transform: translate3d(-4px, 0, 0);                  }                  40%, 60% {                    transform: translate3d(4px, 0, 0);                  }            }                    @keyframes floating {                0% {                    opacity: 1;                    transform: translateY(0px);                }                50% {                    transform: translateY(-10px);                }                100% {                    opacity: 1;                    transform: translateY(0px);                }            }        .animator-hidden { display: none; }</style>
@@ -288,6 +290,7 @@
 
             </div>
         </div>
+
         <div class="my-4 py-6">
             <h2 id="company" class=" sm:text-2xl sm:font-bold md:text-4xl md:font-extrabold mx-auto my-6 w-100 text-center text-cyan-700">Companies we're Collaborate With</h2>
             <hr class="sm:w-24 md:w-48 h-1 mx-auto my-4 mb-10 bg-yellow-400 border-0 rounded md:my-7 dark:bg-gray-700">
@@ -331,7 +334,6 @@
 
           </div>
 
-        <script src="./myassets/myjs.js"></script>
 
 
         @endsection

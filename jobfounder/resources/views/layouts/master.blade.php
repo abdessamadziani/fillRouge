@@ -8,12 +8,23 @@
     @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"  rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-    <link rel="stylesheet" href="{{asset('resources/css/mycss.css') }}">
+    {{-- <link rel="stylesheet" href="{{asset('resources/css/mycss.css') }}"> --}}
+    <link rel="stylesheet" href="{{asset('./myassets/mystyle.css')}}">
+
+
+
+
+
 
 
 
 </head>
 <body>
+
+
+    <div id="ld" class="triple-spinner"></div>
+
+
     <nav class="text-white bg-gradient-to-r from-cyan-700 to-blue-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0  border-gray-200 dark:border-gray-600">
         <div class=" w-full flex flex-wrap items-center justify-between mx-auto">
         <a href="http://127.0.0.1:8000" class="flex items-center">
@@ -234,5 +245,17 @@
 
     <script src="https://kit.fontawesome.com/24dbd9ce21.js" crossorigin="anonymous"></script>
 
+
+    <script src="./myassets/myjs.js"></script>
+    <script>
+        var loader = document.getElementById('ld');
+        var bd = document.getElementById('bd');
+
+        window.addEventListener('load', function() {
+        loader.style.display = "none";
+        bd.style.backgroundColor = "white";
+
+                });
+    </script>
 </body>
 </html>
