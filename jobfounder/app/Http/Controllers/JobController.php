@@ -8,7 +8,7 @@ use App\Models\Job;
 use App\Models\Company;
 use App\Mail\ContactMail;
 use Illuminate\Support\Facades\Mail;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -137,7 +137,9 @@ class JobController extends Controller
             'status'=>$request->input('status'),
             'last_date'=>$request->input('last_date'),
         ]);
-        return redirect()->back();
+        Alert::success('Success',' Job Announce added successfully');
+        return redirect()->back() ;
+
 
     }
     public function applicant()
@@ -198,6 +200,7 @@ class JobController extends Controller
     {
         //
         $job=Job::find($id);
+
         return view('jobs.editjob',compact('job'));
     }
 
@@ -211,6 +214,7 @@ class JobController extends Controller
         // $company_id=auth()->user()->company->id;
         $job=Job::findOrFail($id);
         $job->update($request->all());
+        Alert::success('Success',' Job Announce updated successfully');
         return redirect()->back();
         // $job->update([
         //     'user_id'=>$user_id,
@@ -238,6 +242,8 @@ class JobController extends Controller
         //
         $job=Job::findOrFail($id);
         $job->delete();
+        Alert::success('Success',' Job Announce deleted successfully');
+
         return redirect()->back();
 
     }

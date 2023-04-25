@@ -92,20 +92,20 @@
         <div class="sm:w-full  md:container mx-auto  relative overflow-x-auto shadow-md sm:rounded-lg mb-6">
  <form action="{{route('alljobs')}}" method="GET">
     <div class=" w-10/12  mx-auto grid grid-cols-5 gap-4 mb-4">
-        <input type="text" id="title" name="title" class="bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5" placeholder="Keyword">
-        <select id="type" name="type" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none  block w-full p-2.5">
+        <input type="text" id="title" name="title" class="bg-gray-50 border  text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400  focus:border-none block w-full p-2.5" placeholder="Keyword">
+        <select id="type" name="type" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-yellow-400  block w-full p-2.5">
             <option selected>Type</option>
             <option value="1">fulltime</option>
             <option value="0">remote</option>
           </select>
 
-          <select id="category_id" name="category_id" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5 ">
+          <select id="category_id" name="category_id" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-yellow-400  block w-full p-2.5 ">
             <option selected>Category</option>
             @foreach(App\models\Category::all() as $cat)
             <option value="{{$cat->id}}">{{$cat->name}}</option>
             @endforeach
           </select>
-          <input type="text" id="address" name="address" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-none block w-full p-2.5" placeholder="Address ">
+          <input type="text" id="address" name="address" class="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-yellow-400 border-yellow-400 focus:border-yellow-400 focus:border-none block w-full p-2.5" placeholder="Address ">
 
           <button type="submit" class=" w-1/2 ml-auto text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-3 text-center ">Shearch</button>
 
@@ -281,7 +281,6 @@
                             <button class=" m-auto block p-3 rounded-lg  font-bold capitalize text-white w-full  text-2xl " style="background: linear-gradient(to right,#ee7724, #d8363a,#dd3675, #b44593 );" name="send">send message</button>
                           </div>
 
-
                 </div>
             </form>
 
@@ -327,13 +326,7 @@
 
 
 
-
-
-
-
-
           </div>
-
 
 
         @endsection

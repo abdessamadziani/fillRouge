@@ -65,6 +65,16 @@
 
 
 
+<script>
+    var loader = document.getElementById('ld');
+    var bd = document.getElementById('bd');
+    var content = document.getElementById('content');
+      content.style.opacity = "0.1";
+      window.addEventListener('load', function() {
+      loader.style.display = "none";
+      content.style.opacity = "1";
 
+            });
+</script>
 
 @endsection

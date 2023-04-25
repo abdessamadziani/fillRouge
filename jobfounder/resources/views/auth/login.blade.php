@@ -1,10 +1,10 @@
-<x-guest-layout>
+<x-guest-layout >
 
     <link rel="stylesheet" href="{{asset('./myassets/mystyle.css')}}">
 
     <div id="ld" class="triple-spinner"></div>
 
-    <div class="sm:w-full md:w-10/12 grid sm:grid-cols-1 md:grid-cols-2 gap-6 mx-auto ">
+    <div id="content" class="sm:w-full md:w-10/12 grid sm:grid-cols-1 md:grid-cols-2 gap-6 mx-auto ">
 
 
 
@@ -78,8 +78,12 @@
 </div>
 <script>
     var loader = document.getElementById('ld');
+    var content = document.getElementById('content');
+         content.style.opacity = "0.1";
     window.addEventListener('load', function() {
-    loader.style.display = "none";
+        loader.style.display = "none";
+        content.style.opacity = "1";
+
             });
 </script>
 </x-guest-layout>

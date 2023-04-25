@@ -19,12 +19,12 @@
 
 
 </head>
-<body>
+<body id="bd">
 
 
     <div id="ld" class="triple-spinner"></div>
 
-
+<main id="content">
     <nav class="text-white bg-gradient-to-r from-cyan-700 to-blue-900 px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0  left-0  border-gray-200 dark:border-gray-600">
         <div class=" w-full flex flex-wrap items-center justify-between mx-auto">
         <a href="http://127.0.0.1:8000" class="flex items-center">
@@ -250,12 +250,20 @@
     <script>
         var loader = document.getElementById('ld');
         var bd = document.getElementById('bd');
+        var content = document.getElementById('content');
+         content.style.opacity = "0.1";
+
+
+
 
         window.addEventListener('load', function() {
-        loader.style.display = "none";
-        bd.style.backgroundColor = "white";
+         loader.style.display = "none";
+        content.style.opacity = "1";
 
                 });
     </script>
+    </main>
+    @include('sweetalert::alert')
+
 </body>
 </html>

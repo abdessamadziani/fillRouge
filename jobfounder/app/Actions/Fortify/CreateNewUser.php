@@ -10,6 +10,7 @@ use Laravel\Jetstream\Jetstream;
 use App\Models\Profile;
 
 
+
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
@@ -44,6 +45,7 @@ class CreateNewUser implements CreatesNewUsers
             'dob' => $user->dob,
             'gender' => $user->gender,
         ]);
+
         return $user;
     }
 }

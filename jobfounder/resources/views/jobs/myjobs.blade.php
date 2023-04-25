@@ -70,11 +70,8 @@
                     <a href="{{route('myjob.edit',[$job->id,$job->slug])}}">
                         <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2">Edit</button>
                     </a>
-                    {{-- <form action="{{route('myjob.delete',[$job->id])}}" method="POST">@csrf --}}
-                        {{-- <a href="{{route('myjob.delete',[$job->id])}}"> --}}
-                            <button type="submit" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" data-modal-toggle="popup-modal">Delete</button>
-                        {{-- </a> --}}
-                    {{-- </form> --}}
+                            <button type="#" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" data-modal-toggle="popup-modal">Delete</button>
+
                     <a href="{{route('job.applicants',[$job->id])}}">
                         <button type="button" class="relative text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"> Postulants
                             <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-yellow-400 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{{$job->users->count();}}</div>
@@ -107,7 +104,7 @@
                         Yes, I'm sure
                     </button>
                     <button data-modal-toggle="popup-modal" type="button" class="text-gray-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
-
+                </form>
                 </div>
             </div>
         </div>
@@ -120,7 +117,6 @@
         </tbody>
     </table>
 </div>
-
 
 
 
