@@ -10,6 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     {{-- <link rel="stylesheet" href="{{asset('resources/css/mycss.css') }}"> --}}
     <link rel="stylesheet" href="{{asset('./myassets/mystyle.css')}}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+
 
 
 
@@ -33,7 +36,7 @@
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Jbs <span class="text-yellow-400">Grab</span></span>
         </a>
         <div class="flex md:order-2">
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" bg-transparent   font-medium  text-sm px-6 py-2.5 mx-2 text-center inline-flex items-center text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:outline-none focus:ring-yellow-300 rounded-full border-2 duration-1000" type="button">Register<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" bg-transparent   font-medium  text-sm px-6 py-2.5 mx-2 text-center inline-flex items-center text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:outline-none focus:ring-yellow-300 rounded-full  duration-1000" type="button">@if(auth()->user()){{auth()->user()->name}}@else{{'Register'}}@endif<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
             <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -67,7 +70,7 @@
             <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                   <li>
-                        <a href="{{route('profile.show')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Profile':''}}</a>
+                        <a href="{{route('profile.show')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white   {{auth()->user()?'':'hidden'}}"   >{{auth()->user()?'Settings':''}}</a>
                   </li>
                   <li>
                    @if(auth()->user())
@@ -80,12 +83,14 @@
                     @endif
                    @endif
                  </li>
+                 @if(auth()->user()==false)
                   <li>
-                    <a href="{{route('register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As User</a>
+                    <a href="{{route('register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As Job Seeker</a>
                   </li>
                   <li>
                     <a href="{{route('recruiter.register')}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Register As Recruiter</a>
                   </li>
+                  @endif
 
                   <li>
 
@@ -243,9 +248,17 @@
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/24dbd9ce21.js" crossorigin="anonymous"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
 
+</script>
+
+   <script src="https://kit.fontawesome.com/24dbd9ce21.js" crossorigin="anonymous"></script>
     <script src="./myassets/myjs.js"></script>
     <script>
         var loader = document.getElementById('ld');
@@ -257,7 +270,7 @@
 
 
         window.addEventListener('load', function() {
-         loader.style.display = "none";
+        loader.style.display = "none";
         content.style.opacity = "1";
 
                 });

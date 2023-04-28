@@ -47,6 +47,8 @@ class JobController extends Controller
 
        ];
        Mail::to('zianiabdssamad30@gmail.com')->send(new ContactMail($details));
+       Alert::success('Mail send ',' Your Email has been send successfully');
+
        return back();
     }
 
@@ -55,7 +57,9 @@ class JobController extends Controller
     public function index()
     {
         //
-        $jobs=Job::latest()->paginate(6);
+        // $jobs=Job::latest()->paginate(6);
+        $jobs=Job::latest()->get();
+
         $companies=Company::all();
         return view('welcome',compact(['jobs','companies']));
     }
@@ -180,6 +184,13 @@ class JobController extends Controller
         $job_id=Job::find($id);
         $job_id->users()->attach(auth()->user()->id);
         return redirect()->back()->with('msg','Job applyed Successfully !');
+    }
+
+    public function desapply(Request $request,string $id)
+    {
+        $job_id=Job::find($id);
+        $job_id->users()->detach(auth()->user()->id);
+        return redirect()->back();
     }
 
 
