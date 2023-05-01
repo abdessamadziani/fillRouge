@@ -21,15 +21,14 @@ class JobController extends Controller
      * Display a listing of the resource.
      */
 
-    // public function __construct()
-    // {
-    //     $this->middleware('recruiter',['except'=>array('index','show','myjobs','applicant','jobapplicants')]);
-    // }
+    public function __construct()
+    {
+        // if is not a recruiter he can olny do ..
+          $this->middleware('recruiter',['except'=>array('index','show','apply','desapply')]);
 
-    //  public function __construct()
-    // {
-    //     $this->middleware('seeker',['except'=>array('index','show','apply')]);
-    // }
+    }
+
+
 
     public function contact()
     {
@@ -65,32 +64,32 @@ class JobController extends Controller
     }
 
 
-    public function alljobs(Request $request)
-    {
-        //
-        $keyword=$request->input('title');
-        $type=$request->input('type');
-        $category=$request->input('category_id');
-        $address=$request->input('address');
-        // dd($keyword .' '. $type.''.$category.''.$address);
-        if($keyword || $type || $category || $address)
-        {
-            $jobs=Job::where('title','LIKE','%'.$keyword.'%')
-            ->orwhere('type',$type)
-            ->orwhere('category_id',$category)
-            ->orwhere('address','title','LIKE','%'.$address.'%')->paginate(6);
-            $companies=Company::all();
-            return view('welcome',compact(['jobs','companies']));
+    // public function alljobs(Request $request)
+    // {
+    //     //
+    //     $keyword=$request->input('title');
+    //     $type=$request->input('type');
+    //     $category=$request->input('category_id');
+    //     $address=$request->input('address');
+    //     // dd($keyword .' '. $type.''.$category.''.$address);
+    //     if($keyword || $type || $category || $address)
+    //     {
+    //         $jobs=Job::where('title','LIKE','%'.$keyword.'%')
+    //         ->orwhere('type',$type)
+    //         ->orwhere('category_id',$category)
+    //         ->orwhere('address','title','LIKE','%'.$address.'%')->paginate(6);
+    //         $companies=Company::all();
+    //         return view('welcome',compact(['jobs','companies']));
 
-        }
-        else
-        {
+    //     }
+    //     else
+    //     {
 
-            $jobs=Job::latest()->paginate(6);
-            $companies=Company::all();
-            return view('welcome',compact(['jobs','companies']));
-        }
-    }
+    //         $jobs=Job::latest()->paginate(6);
+    //         $companies=Company::all();
+    //         return view('welcome',compact(['jobs','companies']));
+    //     }
+    // }
 
 
 

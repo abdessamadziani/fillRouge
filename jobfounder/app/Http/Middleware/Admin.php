@@ -5,10 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Auth;
 
-
-class Seeker
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -17,7 +15,7 @@ class Seeker
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->check()&&auth()->user()->user_type=="seeker")
+        if(auth()->check()&&auth()->user()->user_type=="admin")
         {
             return $next($request);
         }
@@ -25,5 +23,7 @@ class Seeker
         {
              return redirect('/');
         }
-   }
+    }
+
+
 }

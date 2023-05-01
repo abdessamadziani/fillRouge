@@ -70,9 +70,7 @@ Route::get('/admin/users',[AdminController::class,'getusers'])->name('admin.user
 
 
 
-Route::get('/mylogin', function () {
-    return view('myauth.signin');
-});
+
 
 
 
@@ -81,7 +79,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'recruiter',
+
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

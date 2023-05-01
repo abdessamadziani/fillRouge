@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Auth;
+
 
 class Recruiter
 {
@@ -15,7 +17,7 @@ class Recruiter
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->check()&&auth()->user()->type=="recruiter")
+        if(auth()->check()&&auth()->user()->user_type=="recruiter")
         {
             return $next($request);
         }

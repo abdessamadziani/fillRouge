@@ -66,7 +66,7 @@
                 </div>
                 <div>
                     <label for="phone" class="block mb-2 text-sm font-medium text-gray-400 dark:text-white">Phone Number</label>
-                    <input type="text" name="phone" id="phone" value="{{old('phone')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
+                    <input type="text" name="phone" id="phone" value="{{auth()->user()->profiles->phone}}"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Your Address ..">
                     @if($errors->has('phone'))
                     <p class="text-red-600">{{$errors->first('phone')}}</p>
                     @endif

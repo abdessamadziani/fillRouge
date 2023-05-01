@@ -16,15 +16,12 @@ class CompanyController extends Controller
      */
 
 
-    //  public function __construct()
-    //  {
-    //      $this->middleware('recruiter',['except'=>array('index')]);
-    //  }
+     public function __construct()
+     {
+         $this->middleware('recruiter',['except'=>array('index')]);
+     }
 
-    // public function __construct()
-    // {
-    //     $this->middleware('seeker',['except'=>array('index')]);
-    // }
+
 
     // public function allcompanies()
     // {
